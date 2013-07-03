@@ -1,0 +1,22 @@
+# ~/.tmuxinator/froi.yml
+# you can make as many tabs as you wish...
+
+project_name: online_froi 
+project_root: ~/Sites/rails/pinnacol/online_froi
+tabs:
+  - froi_term: git pull
+  - froi_editor:
+      layout: main-horizontal
+      panes:
+        - vim ./
+        - monitor_tests
+        - setup_test_db
+  - servers:
+      layout: even-horizontal
+      panes:
+        - cd ../online_apps; dev_server -p 3011 -e production
+        - cd ./spec/dummy; dev_server
+  - console: cd ./spec/dummy; rails c
+  - apps: cd ../online_apps; git pull
+  - pinn: cd ../; git_pull_list
+  - assets: cd ../online_assets
